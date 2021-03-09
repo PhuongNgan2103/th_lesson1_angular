@@ -1,5 +1,6 @@
 import './scss/styles.scss';
 
+
 const wait5Secs = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve(5);
@@ -28,12 +29,12 @@ function httpGet(url: string): Promise<any> {
   });
 }
 httpGet('https://api.github.com/search/repositories?q=angular').then(
-  function(value) {
-    console.log('Contents: ' + value);
-  },
-  function(reason) {
-    console.error('Something went wrong', reason);
-  }
+    function(value) {
+      console.log('Contents: ' + value);
+    },
+    function(reason) {
+      console.error('Something went wrong', reason);
+    }
 );
 // parseJSON
 function parseResponse(value: string) {
@@ -44,11 +45,11 @@ function parseResponse(value: string) {
   }
 }
 httpGet('https://api.github.com/search/repositories?q=angular')
-  .then(parseResponse)
-  .then(data => console.log(data))
-  .catch(function(reason) {
-    console.error('Something went wrong', reason);
-  });
+    .then(parseResponse)
+    .then(data => console.log(data))
+    .catch(function(reason) {
+      console.error('Something went wrong', reason);
+    });
 
 // promise chỉ resolve hoặc reject duy nhất 1 lần
 const promise = new Promise((resolve, reject) => {
@@ -85,13 +86,13 @@ async function fns() {
   const result = await promise;
   console.log(result); // "done!"
 }
-fns();
+fns();
 
 // handle error
 async function getUser(username: string) {
   try {
     const response = await fetch(
-    `https://api.github.com/search/users?q=${username}`
+        `https://api.github.com/search/users?q=${username}`
     );
     return await response.json();
   } catch (e) {
@@ -99,8 +100,8 @@ async function getUser(username: string) {
   }
 }
 getUser('bob')
-  .then(res => console.log(res))
-  .catch(err => console.warn(err));
+    .then(res => console.log(res))
+    .catch(err => console.warn(err));
 
 
 // do not combine sync operations with async/await
@@ -111,7 +112,7 @@ getUser('bob')
     console.log(x);
     return 5;
   }
-  (async () => {
+  (async () => {
     x += await r5();
     console.log(x);
   })();
@@ -125,7 +126,7 @@ getUser('bob')
     console.log(x);
     return 5;
   }
-  (async () => {
+  (async () => {
     const y = await r5();
     x += y;
     console.log(x);
@@ -183,4 +184,3 @@ async function getBooksAndAuthorFixed(authorId: string) {
 }
 
 getBooksAndAuthorFixed('author-id-2');
-
