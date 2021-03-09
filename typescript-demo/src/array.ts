@@ -5,21 +5,21 @@ import './scss/styles.scss';
 
 // declare an array
 
+
 const list: number[] = [1, 2, 3];
 
 const categories: Array<string> =
-  ['Sport', 'IT', 'Car'];
+    ['Sport', 'IT', 'Car'];
 
 console.log('list');
 list.forEach((num) =>
-  console.log(num.toFixed(2))
+    console.log(num.toFixed(2))
 );
 
 console.log('categries');
 categories.forEach((str) =>
-  console.log(str.includes('a'))
+    console.log(str.includes('a'))
 );
-
 // convert mảng từ dạng này sang dạng khác.
 const listSquare = list.map(num => num * num);
 console.log(listSquare)
@@ -30,12 +30,11 @@ const result = categories.filter(str => str.length > 2)
 console.log(result);
 // Output: ['Sport', 'Car']
 
-
 /**
  * Tuple
  */
 
-// Declare a tuple type
+/// Declare a tuple type
 let x: [string, number];
 // Initialize it
 x = ["hello", 10]; // OK
@@ -52,4 +51,3 @@ x[5] = 100.25;
 console.log(x[5].toString());
 // OK, 'string' and 'number' both have 'toString'
 
-// x[6] = true; // Error, 'boolean' isn't 'string | number'
