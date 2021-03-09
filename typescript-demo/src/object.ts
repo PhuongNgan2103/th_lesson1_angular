@@ -11,7 +11,6 @@ let customer: IUser = {
 };
 
 console.log(customer);
-
 /* customer = {
   name: 'Anna'
 }; */
